@@ -1,2 +1,3 @@
-# Laboratorio-di-Ottica-Elettronica-e-Fisica-Moderna
-Repository con tutti i programmi per le analisi dati di quest'anno.
+# Millikan
+
+Questo repository serve per labvorare insieme sull'analisi dati dell'esperimento di Millikan.
