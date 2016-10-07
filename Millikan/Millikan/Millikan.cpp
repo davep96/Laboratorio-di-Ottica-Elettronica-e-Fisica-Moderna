@@ -2,10 +2,13 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
 
 
 int main()
 {
+	std::cout << "Vacca" << std::endl;
+
     return 0;
 }
 
