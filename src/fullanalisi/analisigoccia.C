@@ -3,10 +3,12 @@
 #include<fstream>
 #include<cmath>
 #include "lib.h"
+
 double average(double* , int );
 double stdDevS(double* ,int);
 void compat(double* values, double * errors, int number);
-int main (){
+
+charge dropanalysis(ifstream & inFile){
 	//Initial Calls
 	drop expDrop;
 	double tester, dz, eta,b=8.2E-3,p=1.01E+5,g=9.806,dRho=858.7,t,d,dV,chi2=0;
@@ -15,9 +17,9 @@ int main (){
 	expDrop.dt2=new double[count2];
 	expDrop.dt3=new double[count3];
 	
-	ifstream inFile;
+
 	ofstream outFile;
-	inFile.open("data.txt");
+
 	/*
 		All data must come from a txt file called data.
 		Data should be organized in one column.
@@ -101,7 +103,6 @@ int main (){
 	inFile>>t;
 	inFile>>d;
 	inFile>>dV;
-	inFile.close();
 	
 	//Speed derivation;
 	expDrop.v1=new double[count1];
@@ -178,14 +179,7 @@ int main (){
 		c.error=c.error+pow(expDrop.sQ[i],-2);
 	}
 	c.error=pow(c.error,-0.5);
-	cout<<c.value<<"\t"<<c.error<<"\t"<<100*c.error/c.value<<"\t"<<endl;
-	//Chi^2
-	
-	for(int i=0;i<count2+count3;i++){
-		chi2=chi2+pow(expDrop.Q[i]-c.value,2);
-	}
-		chi2=chi2/((count1+count2-1)*c.error*c.error);
-	
+	//cout<<c.value<<"\t"<<c.error<<"\t"<<100*c.error/c.value<<"\t"<<endl;
 	
 	//Data exit
 	
@@ -238,5 +232,5 @@ int main (){
 	}
 	outFile.close();
 	
-	return 0;
+	return c;
 }
