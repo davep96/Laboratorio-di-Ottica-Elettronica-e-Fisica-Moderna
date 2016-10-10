@@ -1,0 +1,1 @@
+Questa cartella conterrà solo la release definitiva
