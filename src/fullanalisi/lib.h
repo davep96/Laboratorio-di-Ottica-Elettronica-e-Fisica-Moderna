@@ -21,7 +21,9 @@ struct drop{
 	double* sQ; // Errori delle cariche
 };
 
-struct charge{
+struct measure{
 	double value;
 	double error;
+	int classnum;
+	int number;
 };

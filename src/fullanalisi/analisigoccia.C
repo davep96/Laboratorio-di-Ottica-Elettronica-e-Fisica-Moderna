@@ -2,13 +2,12 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
+#include <sstream>
 #include "lib.h"
-
 double average(double* , int );
 double stdDevS(double* ,int);
 void compat(double* values, double * errors, int number);
-
-charge dropanalysis(ifstream & inFile){
+measure dropanalysis(ifstream &inFile, int filecount){
 	//Initial Calls
 	drop expDrop;
 	double tester, dz, eta,b=8.2E-3,p=1.01E+5,g=9.806,dRho=858.7,t,d,dV,chi2=0;
@@ -16,10 +15,7 @@ charge dropanalysis(ifstream & inFile){
 	expDrop.dt1=new double[count1];
 	expDrop.dt2=new double[count2];
 	expDrop.dt3=new double[count3];
-	
-
 	ofstream outFile;
-
 	/*
 		All data must come from a txt file called data.
 		Data should be organized in one column.
@@ -104,6 +100,7 @@ charge dropanalysis(ifstream & inFile){
 	inFile>>d;
 	inFile>>dV;
 	
+	
 	//Speed derivation;
 	expDrop.v1=new double[count1];
 	for(int i=0;i<count1;i++){
@@ -171,7 +168,8 @@ charge dropanalysis(ifstream & inFile){
 					pow(pow(expDrop.mr,3)*expDrop.v2[i]/pow(expDrop.mv1,2)*expDrop.sv1,2),0.5);
 	}
 	
-	charge c;
+	measure c;
+	c.number=filecount;
 	//Media dei q (non pesata) ed errore
 	c.value=average(expDrop.Q,count2+count3);
 	c.error=0;
@@ -179,12 +177,23 @@ charge dropanalysis(ifstream & inFile){
 		c.error=c.error+pow(expDrop.sQ[i],-2);
 	}
 	c.error=pow(c.error,-0.5);
-	//cout<<c.value<<"\t"<<c.error<<"\t"<<100*c.error/c.value<<"\t"<<endl;
+	//Chi^2
+	
+	for(int i=0;i<count2+count3;i++){
+		chi2=chi2+pow(expDrop.Q[i]-c.value,2);
+	}
+		chi2=chi2/((count1+count2-1)*c.error*c.error);
+	
 	
 	//Data exit
 	
 	//	times
-	outFile.open("timeIntervals.txt");
+	ostringstream s;
+	s << "timeIntervals" << filecount <<".txt";
+	string name(s.str());
+	s.str("");
+	outFile.open(name.c_str());
+	name="";
 	for(int i=0; i<count1 ; i++){
 		outFile<<expDrop.dt1[i]<<endl;
 	}
@@ -201,7 +210,11 @@ charge dropanalysis(ifstream & inFile){
 
 	outFile.close();
 	//	speeds
-	outFile.open("speedValues.txt");
+	s << "speedValues" << filecount <<".txt";
+	name=s.str();
+	s.str("");
+	outFile.open(name.c_str());
+	name="";
 	for(int i=0; i<count1 ; i++){
 		outFile<<expDrop.v1[i]<<endl;
 	}
@@ -219,14 +232,23 @@ charge dropanalysis(ifstream & inFile){
 	outFile.close();
 	
 	//	radii
-	outFile.open("radiusValues.txt");
+	s << "radiiValues" << filecount <<".txt";
+	name=s.str();
+	s.str("");
+	s.str("");
+	outFile.open(name.c_str());
+	name="";
 	for(int i=0; i<count1 ; i++){
 		outFile<<expDrop.r[i]<<endl;
 	}
 	outFile.close();
 	
 	//	Charge
-	outFile.open("chargeValues.dat");
+	s << "chargeValues" << filecount <<".txt";
+	name=s.str();
+	s.str("");
+	outFile.open(name.c_str());	
+	name="";
 	for(int i=0; i<count2+count3; i++){
 		outFile<<i+1<<"\t"<<expDrop.Q[i]<<endl;
 	}
