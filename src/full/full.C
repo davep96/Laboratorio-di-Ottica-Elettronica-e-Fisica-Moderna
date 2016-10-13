@@ -179,7 +179,51 @@ int main(){
 	q.value = wave(charges,count);
 	q.error = wdevstd(charges,count);
 	outFile.open("result.txt");
+	outFile<<"Metodo media pesata"<<endl;
+	outFile<<"Value \t Error \t Relative error"<<endl;
+	
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	q.value=0;
+	q.error=0;
+	for(int i=0; i<count; i++){
+		q.value=q.value+charges[i].value;
+	}
+	q.value=q.value/count;
+	for(int i=0; i<count ; i++){
+		q.error=q.error+pow(q.value-charges[i].value,2);
+	}
+	q.error=q.error/((count-1)*count);
+	q.error=sqrt(q.error);
+	
+	outFile<<"Metodo media non pesata, errore = dev std"<<endl;
 	outFile<<"Value \t Error \t Relative error"<<endl;
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	
+	classes=new measure[numofclasses];
+	int j=0;
+	
+	for(int i=0;i<numofclasses;i++){
+		classes[i].value=0;
+		classes[i].error=0;
+		classes[i].classnum=i+1;
+		double denom=0;
+		
+		while(charges[j].classnum==i+1){
+			classes[i].value=classes[i].value+charges[j].value/
+							(pow(charges[j].error,2));
+			denom=denom + 1/(pow(charges[j].error,2));
+			
+			classes[i].error=classes[i].error+pow(charges[j].error,-2);
+			j++;
+		}
+		classes[i].value=classes[i].value/denom;
+		classes[i].error=pow(classes[i].error, -0.5);
+		
+	}
+	
+	
+	for(int i=0; i<numofclasses; i++){
+		cout<<classes[i].value<<"\t"<<classes[i].error<<endl;
+	}
 	return 0;
 }

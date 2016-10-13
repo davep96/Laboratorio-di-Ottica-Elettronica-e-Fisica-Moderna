@@ -1,2 +1,9 @@
+Metodo media pesata
 Value 	 Error 	 Relative error
 1.59735e-19	7.62401e-22	0.00477292
+Metodo media non pesata, errore = dev std
+Value 	 Error 	 Relative error
+1.60175e-19	3.837e-22	0.0023955
+Metodo regressione
+Value 	 Error 	 Relative error
+1.59518e-19	2.68298e-41	1.68193e-22

@@ -173,7 +173,66 @@ int main(){
 	q.value = wave(charges,count);
 	q.error = wdevstd(charges,count);
 	outFile.open("result.txt");
+	outFile<<"Metodo media pesata"<<endl;
+	outFile<<"Value \t Error \t Relative error"<<endl;
+	
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	q.value=0;
+	q.error=0;
+	for(int i=0; i<count; i++){
+		q.value=q.value+charges[i].value;
+	}
+	q.value=q.value/count;
+	for(int i=0; i<count ; i++){
+		q.error=q.error+pow(q.value-charges[i].value,2);
+	}
+	q.error=q.error/((count-1)*count);
+	q.error=sqrt(q.error);
+	
+	outFile<<"Metodo media non pesata, errore = dev std"<<endl;
 	outFile<<"Value \t Error \t Relative error"<<endl;
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	
+	classes=new measure[numofclasses];
+	j=0;
+	int k;
+	for(int i=0;i<numofclasses;i++){
+		k=charges[j].classnum;
+		classes[i].value=0;
+		classes[i].error=0;
+		classes[i].classnum=charges[j].classnum;
+		double denom=0;
+		
+		while(charges[j].classnum==k){
+			classes[i].value=classes[i].value+k*charges[j].value/
+							(pow(charges[j].error,2));
+			denom=denom + 1/(pow(charges[j].error,2));
+			classes[i].error=classes[i].error+pow(charges[j].error,-2);
+			j++;
+		}
+		
+		classes[i].value=classes[i].value/denom;
+		classes[i].error=pow(classes[i].error, -0.5);
+		
+	}
+	double xy=0;
+	double x2=0;
+	
+	for(int i=0; i<numofclasses; i++){
+		xy=xy+classes[i].value*classes[i].classnum/pow(classes[i].error,2);
+		x2=x2+classes[i].classnum*classes[i].classnum/pow(classes[i].error,2);
+	}
+	q.value=xy/x2;
+	q.error=0;
+	for(int i=0; i<numofclasses; i++){
+		q.error=q.error+pow(classes[i].error*((classes[i].value/pow(classes[i].error,2))/x2),2);
+	}
+	q.error=sqrt(q.error);
+	
+	outFile<<"Metodo regressione"<<endl;
+	outFile<<"Value \t Error \t Relative error"<<endl;
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	
+	outFile.close();
 	return 0;
 }
