@@ -4,6 +4,7 @@
 #include "stdlib.h"
 #include "lib.h"
 
+measure dropanalysis(ifstream &, int);
 void quick(measure*,int,int,int);
 int falsefact(int n);
 double wave(measure * a, int n);
@@ -28,15 +29,20 @@ int main(){
 		}
 		delete charges;
 		charges = temp;
-		charges[count].value=a;
-		charges[count].number=count+1;
-		charges[count].error=5*charges[count].value/100;
+		charges[count]=dropanalysis(inFile, count+1);
+
 		count++;
 		inFile>>a;
+
 	}
-
+	ofstream outFile;
+	outFile.open("expCharges.txt");
 	quick(charges,count,0,count-1);
-
+	outFile<<"n"<<"\t"<<"Charge value"<<"\t"<<"Charge error"<<"\t"<<"Relative error"<<endl;
+	for (int i = 0; i < count; i++){
+		outFile<<charges[i].number<<"\t"<<charges[i].value<<"\t"<<charges[i].error<<"\t"<<100*charges[i].error/charges[i].value<<endl;
+	}
+	outFile.close();
 	
 	
 	//Division in classes
@@ -66,7 +72,7 @@ int main(){
 		}
 		i=j;
 	}
-	
+
 	//Class formation
 	measure* classes=new measure[numofclasses];
 	int j=0;
@@ -162,7 +168,7 @@ int main(){
 		charges[i].value=charges[i].value/(charges[i].classnum);
 		charges[i].error=charges[i].error/(charges[i].classnum);
 	}
-	ofstream outFile;
+	
 	outFile.open("chargesComplete.txt");
 	outFile<<"n \t Value \t Error \t k"<<endl;
 	for(int i=0; i<count; i++){
