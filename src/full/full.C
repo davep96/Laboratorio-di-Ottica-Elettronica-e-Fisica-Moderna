@@ -9,6 +9,8 @@ void quick(measure*,int,int,int);
 int falsefact(int n);
 double wave(measure * a, int n);
 double wdevstd(measure * a, int n);
+measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin);
+measure qerror(measure* charge,int num,double seed, double error, double target, bool forward, double errormin);
 
 int main(){
 	bool compat=true;
@@ -180,9 +182,8 @@ int main(){
 	q.error = wdevstd(charges,count);
 	outFile.open("result.txt");
 	outFile<<"Metodo media pesata"<<endl;
-	outFile<<"Value \t Error \t Relative error"<<endl;
-	
-	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	outFile<<"Value \t Error \t Relative error \t z"<<endl;
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;
 	q.value=0;
 	q.error=0;
 	for(int i=0; i<count; i++){
@@ -196,34 +197,66 @@ int main(){
 	q.error=sqrt(q.error);
 	
 	outFile<<"Metodo media non pesata, errore = dev std"<<endl;
-	outFile<<"Value \t Error \t Relative error"<<endl;
-	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
+	outFile<<"Value \t Error \t Relative error \t z"<<endl;
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;
 	
 	classes=new measure[numofclasses];
 	j=0;
-	
+	int k;
 	for(int i=0;i<numofclasses;i++){
+		k=charges[j].classnum;
 		classes[i].value=0;
 		classes[i].error=0;
-		classes[i].classnum=i+1;
+		classes[i].classnum=charges[j].classnum;
 		double denom=0;
 		
-		while(charges[j].classnum==i+1){
-			classes[i].value=classes[i].value+charges[j].value/
+		while(charges[j].classnum==k){
+			classes[i].value=classes[i].value+k*charges[j].value/
 							(pow(charges[j].error,2));
 			denom=denom + 1/(pow(charges[j].error,2));
-			
 			classes[i].error=classes[i].error+pow(charges[j].error,-2);
 			j++;
 		}
+		
 		classes[i].value=classes[i].value/denom;
 		classes[i].error=pow(classes[i].error, -0.5);
 		
 	}
-	
+	double xy=0;
+	double x2=0;
 	
 	for(int i=0; i<numofclasses; i++){
-		cout<<classes[i].value<<"\t"<<classes[i].error<<endl;
+		xy=xy+classes[i].value*classes[i].classnum/pow(classes[i].error,2);
+		x2=x2+classes[i].classnum*classes[i].classnum/pow(classes[i].error,2);
 	}
+	q.value=xy/x2;
+	q.error=0;
+	for(int i=0; i<numofclasses; i++){
+		q.error=q.error+pow(classes[i].error*((classes[i].value/pow(classes[i].error,2))/x2),2);
+	}
+	q.error=sqrt(q.error);
+	
+	outFile<<"Metodo regressione"<<endl;
+	outFile<<"Value \t Error \t Relative error \t z"<<endl;
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;
+	
+
+	q=sums(charges,count,q.value, q.error,true,0.001);
+
+	measure qerrsx,qerrdx;
+	q.error=0;
+	for(int i=0;i<count;i++){
+		q.error+=pow(charges[i].error/(charges[i].classnum),2);
+	}
+	q.error=pow(q.error,0.5);
+	qerrsx=qerror(charges,count,q.value+0.1, 0.5, q.error, true, 0.0001);
+
+	qerrdx=qerror(charges,count,q.value-0.1, 0.5, q.error, false, 0.0001);
+
+	q.error=pow(pow(qerrsx.value-qerrdx.value,2),0.5)/2;
+
+	outFile<<"Metodo minimi"<<endl;
+	outFile<<"Value \t Error \t Relative error \t z"<<endl;
+	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;;
 	return 0;
 }

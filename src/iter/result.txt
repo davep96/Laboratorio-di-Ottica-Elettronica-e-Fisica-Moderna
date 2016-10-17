@@ -1,12 +1,12 @@
 Metodo media pesata
 Value 	 Error 	 Relative error 	 z
-3.17966	0.0415216	0.0130585	37.9479
+1.59735	0.00762401	0.00477292	0.872778
 Metodo media non pesata, errore = dev std
 Value 	 Error 	 Relative error 	 z
-3.16014	0.0547612	0.0173287	28.4169
+1.60175	0.003837	0.0023955	0.585412
 Metodo regressione
 Value 	 Error 	 Relative error 	 z
-3.14124	0.058978	0.0187754	26.0647
+1.59518	0.00268298	0.00168193	3.28835
 Metodo minimi
 Value 	 Error 	 Relative error 	 z
-3.16064	5.0477e-05	1.59705e-05	30838.6
+1.60224	0.0956663	0.0597077	0.0183487

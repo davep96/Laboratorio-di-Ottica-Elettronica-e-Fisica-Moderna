@@ -153,16 +153,16 @@ measure dropanalysis(ifstream &inFile, int filecount){
 	expDrop.Q=new double[count2+count3];
 	expDrop.sQ=new double[count2+count3];
 	for(int i=0; i<count2; i++){
-		expDrop.Q[i]=(-4*M_PI/3)*dRho*g*d/dV*pow(expDrop.mr,3)*(1-expDrop.v2[i]/expDrop.mv1);
-		expDrop.sQ[i]=(4*M_PI/3)*dRho*g*d/dV*pow(
+		expDrop.Q[i]=1e19*(-4*M_PI/3)*dRho*g*d/dV*pow(expDrop.mr,3)*(1-expDrop.v2[i]/expDrop.mv1);
+		expDrop.sQ[i]=1e19*(4*M_PI/3)*dRho*g*d/dV*pow(
 					pow(3*pow(expDrop.mr,2)*(1-expDrop.v2[i]/expDrop.mv1)*(expDrop.msr),2)+
 					pow(pow(expDrop.mr,3)/expDrop.mv1*expDrop.sv2,2)+
 					pow(pow(expDrop.mr,3)*expDrop.v2[i]/pow(expDrop.mv1,2)*expDrop.sv1,2),0.5);
 	}
 	//calcolo di q per ogni velocità
 	for(int i=0; i<count3; i++){
-		expDrop.Q[i+count2]=(4*M_PI/3)*pow(expDrop.mr,3)*dRho*g*d/dV*(1+expDrop.v3[i]/expDrop.mv1);
-		expDrop.sQ[i+count2]=(4*M_PI/3)*dRho*g*d/dV*pow(
+		expDrop.Q[i+count2]=1e19*(4*M_PI/3)*pow(expDrop.mr,3)*dRho*g*d/dV*(1+expDrop.v3[i]/expDrop.mv1);
+		expDrop.sQ[i+count2]=1e19*(4*M_PI/3)*dRho*g*d/dV*pow(
 					pow(3*pow(expDrop.mr,2)*(1+expDrop.v2[i]/expDrop.mv1)*(expDrop.msr),2)+
 					pow(pow(expDrop.mr,3)/expDrop.mv1*expDrop.sv2,2)+
 					pow(pow(expDrop.mr,3)*expDrop.v2[i]/pow(expDrop.mv1,2)*expDrop.sv1,2),0.5);

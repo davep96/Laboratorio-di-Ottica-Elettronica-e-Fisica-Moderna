@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "lib.h"
-measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin){
+measure qerror(measure* charge,int num,double seed, double error, double target, bool forward, double errormin){
 
 	measure sumtot;
 	sumtot.value=seed;
@@ -28,18 +28,20 @@ measure sums(measure* charge,int num,double seed, double error, bool forward, do
 			{
 				sum2+=pow((charge[i].value/(int (charge[i].value/(seed+error)+0.5))-(seed+error)),2);
 			}
-		
+			
+			sum1=pow(pow(sum1-target,2),0.5);
+			sum2=pow(pow(sum2-target,2),0.5);
 			if(sum1>sum2)
 			
 			{
 				sumtot.value=seed+error;
-				sumtot=sums(charge,num,sumtot.value,error,true,errormin);
+				sumtot=qerror(charge,num,sumtot.value,error,target,true,errormin);
 			} 
 			else 
 			
 			{
 				sumtot.error=sumtot.error*99/100;
-				sumtot=sums(charge,num, seed,sumtot.error,false,errormin);
+				sumtot=qerror(charge,num, seed,sumtot.error,target,false,errormin);
 			}
 		} 
 		else 
@@ -61,21 +63,22 @@ measure sums(measure* charge,int num,double seed, double error, bool forward, do
 			{
 				sum2+=pow((charge[i].value/(int (charge[i].value/(seed-error)+0.5))-(seed-error)),2);
 			}
-		
+			
+			sum1=pow(pow(sum1-target,2),0.5);
+			sum2=pow(pow(sum2-target,2),0.5);
 			if(sum1>sum2)
 			
 			{
 				sumtot.value=seed-error;
-				sumtot=sums(charge,num,sumtot.value,sumtot.error,false,errormin);
+				sumtot=qerror(charge,num,sumtot.value,sumtot.error,target,false,errormin);
 			} 
 			else 
 			
 			{
 				sumtot.error=error*99/100;
-				sumtot=sums(charge,num, seed,sumtot.error,true,errormin);
+				sumtot=qerror(charge,num, seed,sumtot.error,true,target,errormin);
 			}
 		}
 	}
 	return sumtot;
-	
 }
