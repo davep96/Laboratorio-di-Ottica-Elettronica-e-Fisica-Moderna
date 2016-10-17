@@ -200,7 +200,7 @@ int main(){
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<endl;
 	
 	classes=new measure[numofclasses];
-	int j=0;
+	j=0;
 	
 	for(int i=0;i<numofclasses;i++){
 		classes[i].value=0;
