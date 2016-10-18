@@ -9,7 +9,7 @@ void quick(measure*,int,int,int);
 int falsefact(int n);
 double wave(measure * a, int n);
 double wdevstd(measure * a, int n);
-measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin);
+measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin, ofstream &);
 measure qerror(measure* charge,int num,double seed, double error, double target, bool forward, double errormin);
 
 int main(){
@@ -245,9 +245,10 @@ int main(){
 	outFile<<"Value \t Error \t Relative error \t z"<<endl;
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;
 	
-
-	q=sums(charges,count,q.value, q.error,true,0.001);
-
+	ofstream out;
+	out.open("sums.txt");
+	q=sums(charges,count,q.value, q.error,true,0.000001,out);
+	out.close();
 	measure qerrsx,qerrdx;
 	q.error=0;
 	for(int i=0;i<count;i++){

@@ -9,4 +9,4 @@ Value 	 Error 	 Relative error 	 z
 1.59518	0.00268298	0.00168193	3.28835
 Metodo minimi
 Value 	 Error 	 Relative error 	 z
-1.60224	0.0956663	0.0597077	0.0183487
+1.60175	0.0956656	0.0597255	0.0234852
