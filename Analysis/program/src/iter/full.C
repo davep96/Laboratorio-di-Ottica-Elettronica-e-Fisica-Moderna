@@ -1,16 +1,17 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
+#include<limits>
 #include "stdlib.h"
 #include "lib.h"
 
-measure dropanalysis(ifstream &, int);
 void quick(measure*,int,int,int);
 int falsefact(int n);
 double wave(measure * a, int n);
 double wdevstd(measure * a, int n);
-measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin);
+measure sums(measure* charge,int num,double seed, double error, bool forward, double errormin, ofstream &);
 measure qerror(measure* charge,int num,double seed, double error, double target, bool forward, double errormin);
+void parab(ifstream & inFile, int num);
 
 int main(){
 	bool compat=true;
@@ -31,21 +32,23 @@ int main(){
 		}
 		delete charges;
 		charges = temp;
-		charges[count]=dropanalysis(inFile, count+1);
-
+		charges[count].value=a*1e19;
+		charges[count].number=count+1;
+		charges[count].error=5*charges[count].value/100;
 		count++;
 		inFile>>a;
-
 	}
-	ofstream outFile;
-	outFile.open("expCharges.txt");
+	inFile.close();
 	quick(charges,count,0,count-1);
-	outFile<<"n"<<"\t"<<"Charge value"<<"\t"<<"Charge error"<<"\t"<<"Relative error"<<endl;
-	for (int i = 0; i < count; i++){
-		outFile<<charges[i].number<<"\t"<<charges[i].value<<"\t"<<charges[i].error<<"\t"<<100*charges[i].error/charges[i].value<<endl;
+
+	ofstream outFile;
+	outFile.open("chargesComplete.txt");
+//	outFile<<"n \t Value \t Error \t k"<<endl;
+	for(int i=0; i<count; i++){
+//		outFile<<i+1<<"\t"<<charges[i].value<<"\t"<<charges[i].error<<"\t"<<charges[i].classnum<<endl;
+		outFile<<i+1<<"\t"<<charges[i].value*(i+1)<<endl;
 	}
 	outFile.close();
-	
 	
 	//Division in classes
 	int numofclasses=0;
@@ -74,7 +77,7 @@ int main(){
 		}
 		i=j;
 	}
-
+	
 	//Class formation
 	measure* classes=new measure[numofclasses];
 	int j=0;
@@ -170,13 +173,16 @@ int main(){
 		charges[i].value=charges[i].value/(charges[i].classnum);
 		charges[i].error=charges[i].error/(charges[i].classnum);
 	}
-	
+	/*
+	ofstream outFile;
 	outFile.open("chargesComplete.txt");
-	outFile<<"n \t Value \t Error \t k"<<endl;
+//	outFile<<"n \t Value \t Error \t k"<<endl;
 	for(int i=0; i<count; i++){
-		outFile<<i+1<<"\t"<<charges[i].value<<"\t"<<charges[i].error<<"\t"<<charges[i].classnum<<endl;
+//		outFile<<i+1<<"\t"<<charges[i].value<<"\t"<<charges[i].error<<"\t"<<charges[i].classnum<<endl;
+		outFile<<i+1<<"\t"<<charges[i].value*(i+1)<<endl;
 	}
 	outFile.close();
+	*/
 	
 	q.value = wave(charges,count);
 	q.error = wdevstd(charges,count);
@@ -240,9 +246,11 @@ int main(){
 	outFile<<"Value \t Error \t Relative error \t z"<<endl;
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;
 	
-
-	q=sums(charges,count,q.value, q.error,true,0.001);
-
+	
+	ofstream out;
+	out.open("sums.txt");
+	q=sums(charges,count,q.value, q.error,true,0.000001,out);
+	out.close();
 	measure qerrsx,qerrdx;
 	q.error=0;
 	for(int i=0;i<count;i++){
@@ -250,13 +258,28 @@ int main(){
 	}
 	q.error=pow(q.error,0.5);
 	qerrsx=qerror(charges,count,q.value+0.1, 0.5, q.error, true, 0.0001);
-
+	cout<<qerrsx.value<<endl;
 	qerrdx=qerror(charges,count,q.value-0.1, 0.5, q.error, false, 0.0001);
-
+	cout<<qerrdx.value<<endl;
 	q.error=pow(pow(qerrsx.value-qerrdx.value,2),0.5)/2;
-
+	cout<<q.value<<"\t"<<q.error<<endl;
 	outFile<<"Metodo minimi"<<endl;
 	outFile<<"Value \t Error \t Relative error \t z"<<endl;
 	outFile<<q.value<<"\t"<<q.error<<"\t"<<q.error/q.value<<"\t"<<pow(pow((q.value-1.604)/q.error,2),0.5)<<endl;;
-	return 0;
+	inFile.open("sums.txt");
+	j=1;
+	inFile>>a;
+	inFile>>a;
+	while(!(inFile.eof()))
+	{
+		j++;
+		inFile>>a;
+		inFile>>a;
+	}
+	cout<<j<<endl;
+	inFile.close();
+	
+	
+	inFile.open("sums.txt");
+	parab(inFile, j);
 }
