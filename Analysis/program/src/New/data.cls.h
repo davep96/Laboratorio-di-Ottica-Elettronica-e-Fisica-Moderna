@@ -5,18 +5,24 @@
 
 class data{
 	public:
-	data(){};
+	data(){
+		size=0;
+		sum=0;
+	};
+	
 	data(std::ifstream& inFile);
 	~data(){};
 	
 	void plot();
-	double sum();
+	void sumcalc();
 	double average();
 	measure waverage();
+	void add(measure m);
 	
 	private:
 	std::vector<measure> dataPoint;
 	int size;
+	double sum;
 };
 
 data::data(std::ifstream& inFile)
@@ -37,6 +43,7 @@ data::data(std::ifstream& inFile)
 	dataPoint.push_back(temp);
 	size=dataPoint.size();
 }
+
 void
 data::plot()
 {
@@ -51,21 +58,21 @@ data::plot()
 	std::system("rm tempdata.txt");
 }
 
-double
-data::sum()
+void
+data::sumcalc()
 {
-	double sum=0;
+	double sumc=0;
 	for(auto it: dataPoint)
 	{
-		sum = sum + it.value;
+		sumc = sumc + it.value;
 	}
-	return sum;
+	sum = sumc;
 }
 
 double
 data::average()
 {
-	return sum()/dataPoint.size();
+	return sum/dataPoint.size();
 }
 
 measure
@@ -79,4 +86,11 @@ data::waverage()
 	}
 	measure wave(pval/sump,pow(sump,-0.5));
 	return wave;
+}
+
+void
+data::add(measure m)
+{
+	dataPoint.push_back(m);
+	
 }

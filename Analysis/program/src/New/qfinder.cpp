@@ -2,6 +2,7 @@
 #include "cls.h"
 
 
+
 int main (int argc, char* argv[])
 {
 	if(argc<2)
@@ -36,6 +37,7 @@ int main (int argc, char* argv[])
 	inFile.close();
 	std::system("rm tempData.txt");
 	
+	qvals.sumcalc();
 	
 	return 0;
 }
