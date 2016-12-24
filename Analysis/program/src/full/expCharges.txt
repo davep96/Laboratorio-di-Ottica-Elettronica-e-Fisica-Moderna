@@ -1,3 +1,0 @@
-n	Charge value	Charge error	Relative error
-2	3.26363	0.0649936	1.99145
-1	9.41833	0.191479	2.03305
