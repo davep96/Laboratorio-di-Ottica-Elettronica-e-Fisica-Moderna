@@ -28,6 +28,8 @@
 
 \usepackage{multirow}
 
+\usepackage{wrapfig}
+
 \usepackage{rotating}
 
 \usepackage{booktabs}
@@ -42,12 +44,12 @@
 	\centering
 	{\scshape\LARGE Laboratorio di Ottica, Elettronica e \\ Fisica Moderna \par}
 	\vspace{1cm}
-	{\scshape\Large Relazione di laboratorio 1\par}
+	{\scshape\Large Relazione di laboratorio 6\par}
 	\vspace{1.5cm}
-	{\huge\bfseries Spettrometro a reticolo\par}
+	{\huge\bfseries Millikan\par}
 	\vspace{2cm}
 
-	{\Large\itshape Nicol√≤ Cavalleri, Giacomo Lini e Davide Passaro
+	{\Large\itshape NicolÚ Cavalleri, Giacomo Lini e Davide Passaro
 	
 	(LUN12)}
 
@@ -55,7 +57,7 @@
 	\vfill
 	\begin{abstract}
 	
-		Di seguito vengono riportate ed esaminate le procedure compiute per la misura della carica dell'elettrone. Sfruttando un supporto fisico che genera un campo elettrico √® infatti possibile osservare la variazione di moto di alcune goccioline di olio che si sono caricate elettricamente per strofinio. Dalla variazione di questo moto -- in termini di velocit√† di caduta e risalita a seconda del verso del campo elettrico, √® poi possibile dedurre la quantit√† di carica che si √® \virgolette{sedimentata} sulle goccioline, individuando cos\'i dei multipli della carica di un singolo elettrone.
+		Di seguito vengono riportate ed esaminate le procedure compiute per la misura della carica dell'elettrone. Sfruttando un supporto fisico che genera un campo elettrico Ë infatti possibile osservare la variazione di moto di alcune goccioline di olio che si sono caricate elettricamente per strofinio. Dalla variazione di questo moto -- in termini di velocit‡† di caduta e risalita a seconda del verso del campo elettrico, Ë poi possibile dedurre la quantit‡† di carica che si Ë \virgolette{sedimentata} sulle goccioline, individuando cosÏ dei multipli della carica di un singolo elettrone.
 	
 	\end{abstract}
 
@@ -68,29 +70,29 @@
 
 \section{Introduzione}
 
-L'elettrone √® una particella subatomica fondamentale dotata di carica \textit{q} che per convenzione √® assunta essere una carica negativa. Una delle possibili procedure per effettuare una misura del valore assoluto di questa carica consiste nello studio della dinamica d alcune goccioline di un determinato materiale su cui le cariche si sedimentano (nel caso specifico dell'olio) in diverse condizioni. In particolare √® possibile osservare delle differenza quando questa dinamica √® influenzata dalla sola forza di gravit√† (oltre che dall'attrito dell'aria), e quando invece √® soggetta anche all'azione di un campo elettrico. 
+L'elettrone Ë una particella subatomica fondamentale dotata di carica \textit{q} che per convenzione Ë assunta essere una carica negativa. Una delle possibili procedure per effettuare una misura del valore assoluto di questa carica consiste nello studio della dinamica d alcune goccioline di un determinato materiale su cui le cariche si sedimentano (nel caso specifico dell'olio) in diverse condizioni. In particolare Ë possibile osservare delle differenza quando questa dinamica Ë influenzata dalla sola forza di gravit‡† (oltre che dall'attrito dell'aria), e quando invece Ë soggetta anche all'azione di un campo elettrico. 
 
 Nello specifico per una gocciolina in caduta libera, per la quale si suppone una forma sferica, vale la relazione:
 \begin{equation}\label{eq_caduta_libera}
 \frac{4}{3}\pi r^3 (\rho_o -\rho_a) g - 6 \pi \eta r v_0 =0
 \end{equation}
-dove $r, \rho_o,\rho_a, \eta, v_0$ sono nell'ordine il raggio della gocciolina, la densit√† dell'olio e dell'aria, il coefficiente di attrito viscoso dell'aria e la velocit√† limite della goccia in assenza di campo. Generando un campo elettrico $E$ all'interno del sistema la relazione si modifica e la dinamica delle goccie d'olio obbedisce alla seguente equazione:
+dove $r, \rho_o,\rho_a, \eta, v_0$ sono nell'ordine il raggio della gocciolina, la densit‡† dell'olio e dell'aria, il coefficiente di attrito viscoso dell'aria e la velocit‡† limite della goccia in assenza di campo. Generando un campo elettrico $E$ all'interno del sistema la relazione si modifica e la dinamica delle goccie d'olio obbedisce alla seguente equazione:
 \begin{equation}\label{eq_dinamica_campo}
 \frac{4}{3}\pi r^3 (\rho_o -\rho_a) g - 6 \pi \eta r v + E q =0
 \end{equation}
-dove $q$ rappresenta la carica che caratterizza la goccia e $v$ √® la nuova velocit√† limite in presenza di campo.
+dove $q$ rappresenta la carica che caratterizza la goccia e $v$ Ë la nuova velocit‡† limite in presenza di campo.
 
-Noti i valori di $g, \rho_o, \rho_a$ la \ref{eq_caduta_libera} consente, al netto della possibilit√† di osservare la dinamica della goccia per determianre la velocit√† con cui questa si muove, di determinarne il raggio. Noto quindi $r$ √® possibile generare il campo elettrico all'interno del supporto sperimentale (del tipo di quello rappresentato in figura \ref{millikan} e di cui segue descrizione) per ricavare la carica totale sulla gocciolina d'olio\footnote{Chiaramente queste relazioni sono di natura vettoriale, in quanto si ha a che fare con campi, forze e accelerazioni. L'omissione della notazione vettoriale √® qui dovuta alla scelta di snellire leggermente la componente matematica della trattazione teorica del problema.}. Questa considerazione deve valere in maniera indipendentemente dall'orientamento del campo, ed √® opportuno in tal senso considerare quando necessario il modulo della velocit√†.
-
-\begin{figure}[htpb]
+\begin{wrapfigure}{l}{0.6 \textwidth}
 	\centering
-	\includegraphics[scale=1]{/../../Immagini/millikan.jpg} 
+	\includegraphics[scale=1]{Immagini/millikan} 
 	\caption{Schema della composizione dell'apparato per la misura della carica dell'elettrone.}\label{millikan}
-\end{figure}
+\end{wrapfigure}
 
-Invertendo la \ref{eq_dinamica_campo} √® quindi possibile ricavare la carica che caratterizza ognuna delle goccioline su cui √® stata effettuata la misura delle velocit√†. Avendo a che fare con cariche discrete, ci si attende che questi valori siano tutti multipli di un valore \virgolette{unitario} che √® proprio la carica del singolo elettrone. Per estrazione di questo termine si pu\'o utilizzare il criterio di massima verosomiglianza stimando il valore di $q$ tramite la ricerca del minimo della parabola individuata dai punti
+Noti i valori di $g, \rho_o, \rho_a$ la \ref{eq_caduta_libera} consente, al netto della possibilit‡† di osservare la dinamica della goccia per determinare la velocit‡† con cui questa si muove, di determinarne il raggio. Noto quindi $r$ Ë possibile generare il campo elettrico all'interno del supporto sperimentale (del tipo di quello rappresentato in figura \ref{millikan} e di cui segue descrizione) per ricavare la carica totale sulla gocciolina d'olio\footnote{Chiaramente queste relazioni sono di natura vettoriale, in quanto si ha a che fare con campi, forze e accelerazioni. L'omissione della notazione vettoriale Ë qui dovuta alla scelta di snellire leggermente la componente matematica della trattazione teorica del problema.}. Questa considerazione deve valere in maniera indipendentemente dall'orientamento del campo, ed Ë opportuno in tal senso considerare quando necessario il modulo della velocit‡.
+
+Invertendo la \ref{eq_dinamica_campo} Ë quindi possibile ricavare la carica che caratterizza ognuna delle goccioline su cui Ë stata effettuata la misura delle velocit‡. Avendo a che fare con cariche discrete, ci si attende che questi valori siano tutti multipli di un valore \virgolette{unitario} che Ë proprio la carica del singolo elettrone. Per estrazione di questo termine si pu\'o utilizzare il criterio di massima verosomiglianza stimando il valore di $q$ tramite la ricerca del minimo della parabola individuata dai punti
 \[
 	S(q)=\sum_{i=0}^{N}\left[\dfrac{Q_i}{k_i(q)}-q\right]^2
 \]
-dove $Q_i$ rappresenta la carica sulle particelle e $k_i$ √® l'intero pi\'u vicino al valore del rapporto $\frac{Q_i}{q}$. Questo valore con il suo errore associato restituisce dunque la miglior stima della carica di un singolo elettrone a partire dai dati ricavati in laboratorio.
+dove $Q_i$ rappresenta la carica sulle particelle e $k_i$ Ë l'intero pi\'u vicino al valore del rapporto $\frac{Q_i}{q}$. Questo valore con il suo errore associato restituisce dunque la miglior stima della carica di un singolo elettrone a partire dai dati ricavati in laboratorio.
 \end{document}
