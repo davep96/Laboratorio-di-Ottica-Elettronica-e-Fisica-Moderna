@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.12)  8 JAN 2017 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.12)  8 JAN 2017 18:01
 entering extended mode
 **./FullMillikan.tex
 (FullMillikan.tex
@@ -918,7 +918,7 @@ Package epstopdf Info: Source file: <../Immagini/good.eps>
 ted-to.pdf ../Immagini/good.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
-<../Immagini/good-eps-converted-to.pdf, id=144, 717.68124pt x 429.605pt>
+<../Immagini/good-eps-converted-to.pdf, id=146, 717.68124pt x 429.605pt>
 File: ../Immagini/good-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../Immagini/good-eps-converted-to.pdf>
@@ -937,7 +937,7 @@ df>
 (epstopdf)             \includegraphics on input line 294.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Immagini/singleerror-eps-converted-to.pdf, id=146, 717.68124pt x 429.605pt>
+<../Immagini/singleerror-eps-converted-to.pdf, id=148, 717.68124pt x 429.605pt>
 File: ../Immagini/singleerror-eps-converted-to.pdf Graphic file (type pdf)
 <use ../Immagini/singleerror-eps-converted-to.pdf>
 Package pdftex.def Info: ../Immagini/singleerror-eps-converted-to.pdf used on i
@@ -955,7 +955,7 @@ ted-to.pdf ../Immagini/jump.eps>
 (epstopdf)             \includegraphics on input line 300.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Immagini/jump-eps-converted-to.pdf, id=157, 717.68124pt x 429.605pt>
+<../Immagini/jump-eps-converted-to.pdf, id=159, 717.68124pt x 429.605pt>
 File: ../Immagini/jump-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../Immagini/jump-eps-converted-to.pdf>
@@ -981,7 +981,7 @@ d-to.pdf ../Immagini/Sq.eps>
 (epstopdf)             \includegraphics on input line 323.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Immagini/Sq-eps-converted-to.pdf, id=175, 717.68124pt x 429.605pt>
+<../Immagini/Sq-eps-converted-to.pdf, id=177, 717.68124pt x 429.605pt>
 File: ../Immagini/Sq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../Immagini/Sq-eps-converted-to.pdf>
@@ -999,8 +999,8 @@ Package rerunfilecheck Info: File `FullMillikan.out' has not changed.
 (rerunfilecheck)             Checksum: A6A36E8AC3AE83E8159B181A43D377E1;1001.
  ) 
 Here is how much of TeX's memory you used:
- 18186 strings out of 493334
- 337811 string characters out of 3136672
+ 18187 strings out of 493334
+ 337822 string characters out of 3136672
  399926 words of memory out of 3000000
  21428 multiletter control sequences out of 15000+200000
  99310 words of font info for 72 fonts, out of 3000000 for 9000
@@ -1028,9 +1028,9 @@ m/lmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb>
 )/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/lm/lmtt9.pfb>
-Output written on FullMillikan.pdf (11 pages, 502244 bytes).
+Output written on FullMillikan.pdf (11 pages, 504399 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 62 named destinations out of 1000 (max. 500000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
  138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
