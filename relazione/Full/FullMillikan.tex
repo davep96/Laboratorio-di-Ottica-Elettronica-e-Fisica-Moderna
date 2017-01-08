@@ -15,6 +15,7 @@
 \usepackage{enumitem} 
 
 \newcommand{\virgolette}[1]{``#1''}
+\usepackage{hyperref}
 
 \usepackage[margin=1in]{geometry} %Smaller margins
 
@@ -57,7 +58,7 @@
 	\vfill
 	\begin{abstract}
 	
-		Di seguito vengono riportate ed esaminate le procedure compiute per la misura della carica dell'elettrone. Sfruttando un supporto fisico che genera un campo elettrico è infatti possibile osservare la variazione di moto di alcune goccioline di olio che si sono caricate elettricamente per strofinio. Dalla variazione di questo moto -- in termini di velocità  di caduta e risalita a seconda del verso del campo elettrico, è poi possibile dedurre la quantità  di carica che si è \virgolette{sedimentata} sulle goccioline, individuando così dei multipli della carica di un singolo elettrone.
+		Di seguito vengono riportate ed esaminate le procedure compiute per la misura della carica dell'elettrone. Sfruttando un supporto fisico che genera un campo elettrico è infatti possibile osservare la variazione di moto di alcune goccioline di olio che si sono caricate elettricamente per strofinio. Dalla variazione di questo moto, in termini di velocità  di caduta e risalita a seconda del verso del campo elettrico, è poi possibile dedurre la quantità  di carica che si è \virgolette{sedimentata} sulle goccioline, individuando così dei multipli della carica di un singolo elettrone.
 	
 	\end{abstract}
 
@@ -70,7 +71,7 @@
 
 \section{Introduzione}
 
-L'elettrone è una particella subatomica fondamentale dotata di carica \textit{q} che per convenzione è assunta essere una carica negativa. Una delle possibili procedure per effettuare una misura del valore assoluto di questa carica consiste nello studio della dinamica d alcune goccioline di un determinato materiale su cui le cariche si sedimentano (nel caso specifico dell'olio) in diverse condizioni. In particolare è possibile osservare delle differenza quando questa dinamica è influenzata dalla sola forza di gravità  (oltre che dall'attrito dell'aria), e quando invece è soggetta anche all'azione di un campo elettrico. 
+L'elettrone è una particella subatomica fondamentale dotata di carica \textit{q} che per convenzione è assunta essere una carica negativa. Una delle possibili procedure per effettuare una misura del valore assoluto di questa carica consiste nello studio della dinamica di alcune goccioline di un determinato materiale su cui le cariche si sedimentano (nel caso specifico dell'olio) in diverse condizioni. In particolare è possibile osservare delle differenze quando questa dinamica è influenzata dalla sola forza di gravità  (oltre che dall'attrito dell'aria), e quando invece è soggetta anche all'azione di un campo elettrico. 
 
 Nello specifico per una gocciolina in caduta libera, per la quale si suppone una forma sferica, vale la relazione:
 \begin{equation}\label{eq_caduta_libera}
@@ -138,7 +139,7 @@ Qui di seguito sono elencati i pezzi dell'apparato sperimentale usato per portar
 	
 	\item [Spruzzatore] d'olio per spruzzare le gocce all'interno della camera.
 	
-	\item [Un cellulare] di modello LG G4 usato come cronometro, in quanto più sensibile e facilmente leggibile di quello in dotazione. Era possibile utilizzare i tasti del volume per fermare e segnare un giro del cronometro.
+	\item [Un cellulare] usato come cronometro, in quanto più sensibile e facilmente leggibile di quello in dotazione. Era possibile utilizzare i tasti del volume per fermare e segnare un giro del cronometro.
 	
 \end{description}
 
@@ -153,7 +154,7 @@ Allo stesso tempo la velocità di caduta libera non doveva essere troppo lenta po
 Si portava la goccia, tramite la forza elettrica, in cima al reticolo dopodiché si misurava il tempo che ci metteva a percorrere una tacca grande del reticolo (corrispondente a $\SI{0.5}{\milli \meter}$) per cinque tacche, si accendeva il generatore in maniera tale da far percorrere alla goccia lo stesso percorso in salita e la si faceva scendere nuovamente, questa volta applicando la differenza di potenziale.
 Si ottenevano in questo modo quindici misure. Ogni tanto si vedeva facilmente che la goccia accelerava o decelerava in presenza di corrente, sintomo di perdita di carica, per cui si scartavano i dati presi e si ricominciava con un'altra goccia.
 
-Si sono prese le misure più volte per diverse gocce e per differenze di potenziale di 200, 300 o 400 V. Al termine di ogni misura si trasferivano i tempi registrati col cronometro su un file excel e si verificava che la misura avesse senso.
+Si sono prese le misure più volte per diverse gocce e per differenze di potenziale di 200, 300 o 400 \si{\volt}. Al termine di ogni misura si trasferivano i tempi registrati col cronometro su un file Excel e si verificava che la misura avesse senso.
 
 \section{Analisi dei dati}
 L'analisi dei dati per questo esperimento è stata molto complicata. L'operazione che ha mostrato più importanza nell'analisi è stata la scrematura dei dati. Avendo infatti avuto a disposizione una grande quantità di dati su cui lavorare abbiamo potuto eliminare tutti quelli che davano anche un minimo di indicazione di essere stati affetti da errori di misurazione. Le modalità di eliminazione e i criteri secondo i quali i dati sono stati rimossi sono descritti in seguito.
@@ -180,7 +181,7 @@ r=\left[\left(\frac{b}{2p}\right)^2+\dfrac{9\eta v_0}{2g(\rho_o-\rho_a)}\right]^
 \end{equation}
 dove tutte le costanti sono come prima e $ g $ è l'accelerazione di gravità e $ \rho_o $ e $ \rho_a $ sono rispettivamente le densità dell'olio e dell'aria.
 \subsubsection{Errore sul raggio}
-Per il raggio sono stati considerati tre errori: uno proveniente dalle velocità e descritto sopra, uno casuale calcolato tramite la deviazione standard delle misure, e uno proveniente dalla temperatura. Non effettuando direttamente la misura della temperatura ma dovendoci riferire ad una tabella, come errore si è considerato la metà della della differenza di tempo tra un valore tabulato ed il successivo, ossia mezzo grado. Questi errori sono stati propagati mediante la formula:
+Per il raggio sono stati considerati tre errori: uno proveniente dalle velocità e descritto sopra, uno casuale calcolato tramite la deviazione standard delle misure, e uno proveniente dalla temperatura. Non effettuando direttamente la misura della temperatura ma dovendoci riferire ad una tabella, come errore si è considerato la metà della della differenza di temperatura tra un valore tabulato ed il successivo, ossia mezzo grado. Questi errori sono stati propagati mediante la formula:
 \begin{equation}\label{eqn:sigmar}
 \sigma_r=\sqrt{\left(\dfrac{\partial r}{\partial t}\right)^2\sigma_t^2+\left(\dfrac{\partial r}{\partial v}\right)^2\sigma_v^2+\sigma_{r_{std}}^2}
 \end{equation}
@@ -192,9 +193,9 @@ e
 \begin{equation}\label{eqn:partialrv}
 \dfrac{\partial r}{\partial v}= \left[\left(\frac{b}{2p}\right)^2+\dfrac{9\eta v_0}{2g(\rho_o-\rho_a)}\right]^{-\frac{1}{2}}\dfrac{9_0\eta}{4g(\rho_o-\rho_a)}
 \end{equation}
-e $ \sigma_{r_{std}} $ è la deviazione standard dei valori ricavati.
+e $ \sigma_{r_{std}} $ è la deviazione standard dei valori ricavati\footnote{È notevole il fatto che la deviazione standard costituisse la componente maggiore dell'errore. Infatti gli altri errori si sono verificati essere tutti almeno di un ordine di grandezza inferiore alla deviazione standard. Questo fa pensare che l'errore più grande non fosse stato considerato nella propagazione degli errori. Una ipotesi sulla natura di questo errore potrebbe farlo derivare dall'inaccuratezza sulla posizione verticale della goccia, ossia dal fatto che spesso non era chiaro quando la goccia stesse passando sopra ad una tacca}.
 \subsubsection{Riggetto dei dati per incongruenze sul raggio}
-Come detto prima la grande quantità di dati disponibili ha permesso una scrematura dei dati. In particolare, riguardo al raggio sono stati rigettati i set di misura per i quali non si aveva una buona stima del raggio. Questo è stato valutato tramite la $ z $ di Gauss e in particolare sono stati rigettati tutti i dati per i quali risultava che più di una misura era incompatibile\footnote{Per un confidence level del 95\% ossia $ -1.96<z<1.96, z=\dfrac{r_1-r_2}{\sqrt{\sigma_{r_1}^2+\sigma_{r_2}^2}} $} con 3 o più delle altre.
+Come detto prima la grande quantità di dati disponibili ha permesso una scrematura dei dati. In particolare, riguardo al raggio sono stati rigettati i set di misura per i quali non si aveva una buona stima del raggio. Questo è stato valutato tramite la $ z $ di Gauss e in particolare sono stati rigettati tutti i dati per i quali risultava che più di una misura era incompatibile\footnote{Per un confidence level del 95\% ossia sono stati considerati buoni solo i dati per cui si verificava che $$-1.96<z<1.96,\  z=\dfrac{r_i-r_j}{\sqrt{\sigma_{r_i}^2+\sigma_{r_j}^2}} $$} con 3 o più delle altre.
 \subsubsection{Valore di r finale per il set di dati}
 Come valore finale del set di dati per il raggio è stato considerata la media tra i valori del raggio compatibili e come errore è stato propagato un'altra volta l'errore a partire dal valore del raggio medio e la differenza di tempo media.
 \subsection{Estrazione delle cariche}
@@ -209,7 +210,7 @@ rispettivamente per la salita e la discesa. In queste formule le costanti sono c
 \subsubsection{Errore sulle cariche}
 L'errore sulle cariche è derivato da cinque errori: l'errore sul raggio, l'errore sulla velocità in assenza di campo elettrico, l'errore sulla velocità in presenza di campo elettrico, l'errore sul campo elettrico e l'errore casuale, derivante dalla deviazione standard. L'errore totale è stato calcolato attraverso la propagazione degli errori degli errori sopra citati, quindi con la formula.
 \begin{equation}\label{eqn:sigmaq}
-\sigma_q=\sqrt{\left(\dfrac{\partial q}{\partial r}\right)^2\sigma_r^2+\left(\dfrac{\partial q}{\partial E}\right)^2\sigma_E^2+\left(\dfrac{\partial q}{\partial v}\right)^2\sigma_v^2+\left(\dfrac{\partial q}{\partial v_0}\right)^2\sigma_{v_0}^2+\sigma_{q_{std}}}
+\sigma_q=\sqrt{\left(\dfrac{\partial q}{\partial r}\right)^2\sigma_r^2+\left(\dfrac{\partial q}{\partial E}\right)^2\sigma_E^2+\left(\dfrac{\partial q}{\partial v}\right)^2\sigma_v^2+\left(\dfrac{\partial q}{\partial v_0}\right)^2\sigma_{v_0}^2+\sigma_{q_{std}}^2}
 \end{equation}
 Dove $ E $ è il campo elettrico calcolato come $ E=\Delta V/d $. L'errore sul campo è stato derivato dall'errore sulla misura della distanza d, effettuata con un micrometro, e l'errore sulla differenza di potenziale, dichiarata un centesimo del valore della misura. Quindi:
 \begin{equation}\label{eqn:sigmaE}
@@ -279,37 +280,90 @@ per la discesa.
 \end{wraptable}
 
 \subsubsection{Rigetto dei dati in base alla carica}
-Nota quindi la carica con un buon errore sono stati rigettati tutti i valori delle cariche che possedevano un errore superiore al 40\% oppure che erano visibilmente dovute a misurazioni sbagliate. Si è cercato di non utilizzare questo ultimo metodo per non influenzare il risultato, ma in certi casi questo era proprio evidente (per esempio se il valore di carica oscillava per una misura per poi ritornare al valore precedente). Questi errori erano probabilmente dovuti a piccole interazioni che non causavano uno scambio di elettroni ma una semplice spinta dalla forza di Coulomb.
-Sono riportati nella tabella \ref{tab:qvals} sotto i valori finali delle cariche campionate.
+Nota quindi la carica con un buon errore sono stati rigettati tutti i valori delle cariche che possedevano un errore superiore al 40\% oppure che erano visibilmente dovute a misurazioni sbagliate. Si è cercato di non utilizzare questo ultimo metodo per non influenzare il risultato, ma in certi casi questo era proprio evidente. 
+
+In particolare, guardando i grafici delle cariche campionate si sono riconosciuti tre casi diversi: nessuna interazione, errore isolato e variazione di carica. Ovviamente la prima situazione era quella più auspicabile in quanto rendeva evidente che tutti i valori delle cariche misurate fossero buoni. Un esempio di questo caso è dato dal grafico in figura \ref{fig:good}. Si può ben vedere che i risultati sono tutti compatibili tra di loro e sono disposti in maniera più o meno lineare. \\
+\begin{figure}
+	\caption{Nessuna interazione}
+	\includegraphics[width = 0.98 \textwidth]{../Immagini/good.eps}
+	\label{fig:good}
+\end{figure}
+Un esempio di errore isolato è dato dalla grafico in figura \ref{fig:err}, e in particolare dalla sesta misura. Come si può ben vedere tutti i valori sono compatibili tra di loro ma ce n'è uno che è ovviamente discostato, in questo caso per difetto. In set di dati di questo tipo sono stati rimosse le singole misure che si discostavano dalle altre. Ci sono state due spiegazioni per questi errori: innanzitutto, quando fossero nella sesta misura (cioè la maggior parte delle volte) è ben probabile che siano dovuti ad errori nel tempo dovuti all'inversione della goccia. Quando invece capitavano in altre posizioni si è ipotizzato che potessero essere frutto di interazioni con altre gocce cariche, le quali davano una breve spinta alla goccia presa in esame, impercettibile all'osservatore, ma evidente dai dati.
+\begin{figure}
+		\caption{Errore isolato}
+		\includegraphics[width = 0.98 \textwidth]{../Immagini/singleerror.eps}
+		\label{fig:err}
+\end{figure}
+
+\begin{figure}[h!]
+	\caption{Variazione di carica}
+	\includegraphics[width = 0.98 \textwidth]{../Immagini/jump.eps}
+	\label{fig:jump}
+\end{figure}
+Si è verificata invece una variazione di carica quando la goccia presa in esame ha acquisito o perso uno o più elettroni. Questo era evidente dal grafico in quanto si poteva ben vedere che c'era un \virgolette{salto}. Un esempio di questo è dato dal grafico in figura \ref{fig:jump}. In casi come questi si sono rigettate le misure più vicine al \virgolette{salto} (in questo caso la quinta e la sesta) e si sono tenute le altre.
+
+
+Alla fine di questa scrematura, da un totale di 220 misure se ne sono tenute solamente 124. Le misure tenute sono riportate nella tabella \ref{tab:qvals}\footnote{È possibile scaricare da Internet i fogli di calcolo con tutte le misure dal seguente sito:\\ \url{https://db.tt/vml6o5DdxF}}.
+
 
 \section{Estrazione della carica dell'elettrone}
-L'estrazione della carica dell'elettrone a questo punto è stata effettuata attraverso un programma appositamente scritto in C++. Il programma aveva il compito di trovare il valore migliore di carica q con il metodo di massima verosomiglianza. In particolare si è cercato il valore di $ q $ per cui risultava minima la seguente quantità:
+Per l'estrazione della carica dell'elettrone è stato utilizzato un programma appositamente scritto in C++. Il programma aveva il compito di trovare il valore migliore di carica q con il metodo di massima verosomiglianza. In particolare si è cercato il valore di $ q $ per cui risultava minima la seguente quantità:
 \begin{equation}\label{eqn:sq}
 S(q)=\sum_{i=0}^{N}\left[\dfrac{Q_i}{k_i(q)}-q\right]^2
 \end{equation}
-dove $ Q_i $ sono i valori campionati sopra, $ k_i(q) $ è il numero intero più vicino al rapporto $ Q_i/q $ ed $ N $ è il numero totale di cariche.
+dove $ Q_i $ sono i valori campionati sopra, $ k_i(q) $ è il numero intero più vicino al rapporto $ Q_i/q $ ed $ N $ è il numero totale di cariche. Noto quindi l'intorno nel quale doveva essere il minimo è stato considerato come valore finale il valore di $ q $ che annullava la derivata della \ref{eqn:sq} nella quale si sono considerati i valori di $ k_i $ calcolati con il valore fornito dal programma.
 L'errore finale di $ q $ è stato trovato come la deviazione standard della media delle quantità $ Q_i/k_i(q) $, che vista la natura della funzione $ S(q) $ erano dati da:
 \begin{equation}
 \sigma_{q_e}=\sqrt{\dfrac{S(q_e)}{N(N-1)}}
 \end{equation}
-con le stesse costanti di prima. I valori sopra indicati hanno dato una curva parabolica per S(q) il cui grafico è riportato in figura \ref{fig:S(q)}\footnote{Si noti che i valori riportati sulle ascisse sono Coulomb per \num{1e-19} e i valori di S(q) sono calcolati usando le cariche così normalizzate.}.
+con le stesse costanti di prima. I valori sopra indicati hanno dato una curva parabolica per $ S(q) $ il cui grafico è riportato in figura \ref{fig:S(q)}.
 
 \begin{figure}[h]
 	\caption{Grafico di S(q)}
-	\includegraphics[width = 0.98 \textwidth]{../Immagini/parab.eps}
+	\includegraphics[width = 0.98 \textwidth]{../Immagini/Sq.eps}
 	\label{fig:S(q)}
 \end{figure}
-\newpage
+
 \section{Conclusioni}
  Questo procedimento ha portato al valore riportato in tabella \ref{tab:qfinal}. Valore che risulta pienamente compatibile con quello atteso entro un confidence level del 95\%.
 \begin{table}[htbp]
 	\centering
-	\caption{Misura finale della carica dell'elettrone}
-	\begin{tabular}{llr}
-		\rowcolor[rgb]{ .357,  .608,  .835} $q\ (\si{\coulomb})$ & $\sigma_q\ (\si{\coulomb})$ & \multicolumn{1}{l}{Err. Rel.} \\
-		\rowcolor[rgb]{ .859,  .859,  .859} \num{1.74E-19} & \num{0.16E-19} & 0.089 \\
+	\caption{Carica dell'elettrone misurata}
+	\vspace{1mm}
+	\begin{tabular}{llcc}
+		\rowcolor[rgb]{ .357,  .608,  .835} $q\ \left(\si{\coulomb}\right)$ & $\sigma_q\ \left(\si{\coulomb}\right)$ & \multicolumn{1}{l}{Err. Rel.} & \multicolumn{1}{l}{$z$ di Gauss} \\
+		\rowcolor[rgb]{ .859,  .859,  .859} \num{1.52E-19} & \num{0.14E-19} & 0.09034 & -0.63 \\
 	\end{tabular}%
 	\label{tab:qfinal}%
+\end{table}%
+
+ A questo punto è interessante combinare questo risultato con quello dell'esperienza \virgolette{$ e/m $} nella quale si era misurato il rapporto tra la massa e la carica dell'elettrone, per trovare il valore della massa. Quindi usando le relazioni:
+\begin{equation}\label{eqn:m}
+	m = \frac{q}{e/m}, \quad \sigma_m = \sqrt{\left(\frac{\sigma_q}{e/m}\right)^2+\left(\frac{q\sigma_{e/m}}{\left(e/m\right)^2}\right)^2} 
+\end{equation}
+e i valori ottenuti da quell'esperimento (in tabella \ref{tab:e/m})
+\begin{table}[htbp]
+	\centering
+	\caption{Misura del rapporto $q/m$}
+	\vspace{1mm}
+	\begin{tabular}{llcc}
+		\rowcolor[rgb]{ .357,  .608,  .835} $q\ \left(\si{\coulomb\per\meter}\right)$ & $\sigma_{e/m}\ \left(\si{\coulomb\per\meter}\right)$ & \multicolumn{1}{l}{Err. Rel.} & \multicolumn{1}{l}{$z$ di Gauss} \\
+		\rowcolor[rgb]{ .859,  .859,  .859} \num{1.77E11} & \num{0.11E11} & 0.06  & 0.14 \\
+	\end{tabular}%
+	\label{tab:e/m}%
+\end{table}%
+
+si è ottenuto come valore della massa dell'elettrone quello riportato in tabella \ref{tab:m}, anch'esso pienamente compatibile con il valore vero.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Misura della massa dell'elettrone}
+	\vspace{1mm}
+	\begin{tabular}{llcc}
+		\rowcolor[rgb]{ .357,  .608,  .835} \multicolumn{1}{l}{$q\ \left(\si{\kilo\gram}\right)$} & \multicolumn{1}{l}{$\sigma_m\ \left(\si{\kilo\gram}\right)$} & \multicolumn{1}{l}{Err. Rel.} & \multicolumn{1}{l}{$z$ di Gauss} \\
+		\rowcolor[rgb]{ .859,  .859,  .859} \num{8.54E-31} & \num{9.27E-32} & 0.11  & -0.61 \\
+	\end{tabular}%
+	\label{tab:m}%
 \end{table}%
 
 
